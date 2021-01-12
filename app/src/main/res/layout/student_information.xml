@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgDelete"
         android:layout_width="45dp"
         android:layout_height="42dp"
         app:layout_constraintBottom_toBottomOf="parent"

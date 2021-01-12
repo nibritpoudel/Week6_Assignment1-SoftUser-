@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.TextView
+import android.widget.*
 import com.nibriti.softuser_week6assignment.R
 import com.nibriti.softuser_week6assignment.Storage
 import com.nibriti.softuser_week6assignment.model.Student
@@ -61,6 +58,11 @@ class AddStudent_Fragment : Fragment() {
             var age = etAddress.text.toString()
             var address = etAddress.text.toString()
             Storage().appendStudent(Student(fullname, userImageURL, age, address, gender))
+            Toast.makeText(view?.context, "Student Added Sucessfully", Toast.LENGTH_LONG).show()
+            etFullname.setText("")
+            etImageURL.setText("")
+            etAddress.setText("")
+            etAge.setText("")
 
         }
         return view
