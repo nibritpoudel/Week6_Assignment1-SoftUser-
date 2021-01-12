@@ -5,10 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.nibriti.softuser_week6assignment.R
+import com.nibriti.softuser_week6assignment.Storage
+import com.nibriti.softuser_week6assignment.adapter.StudentDisplay_Adapter
 
 class HomeFragment : Fragment() {
-//    private lateinit var homeViewModel: HomeViewModel
+
+    private lateinit var rvStudents : RecyclerView
+    private var storage =  Storage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,14 +26,20 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        rvStudents = view.findViewById(R.id.rvStudents)
+
         return view
     }
+
+    private fun loadStoryAdapter() {
+        val arr = storage.returnStudent()
+
+        val adapter = StudentDisplay_Adapter(arr, this)
+        rvStudents.layoutManager = LinearLayoutManager(view?.context, LinearLayoutManager.VERTICAL, false)
+        rvStudents.adapter = adapter
+    }
+
+
+
 }
-//homeViewModel =
-//ViewModelProvider(this).get(HomeViewModel::class.java)
-//val root = inflater.inflate(R.layout.fragment_home, container, false)
-//val textView: TextView = root.findViewById(R.id.text_home)
-//homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//    textView.text = it
-//})
-//return root

@@ -61,6 +61,7 @@ class AddStudent_Fragment : Fragment() {
             var age = etAddress.text.toString()
             var address = etAddress.text.toString()
             Storage().appendStudent(Student(fullname, userImageURL, age, address, gender))
+
         }
         return view
     }

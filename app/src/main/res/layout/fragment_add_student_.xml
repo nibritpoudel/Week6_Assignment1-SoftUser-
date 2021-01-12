@@ -19,27 +19,30 @@
     <EditText
         android:id="@+id/etFullname"
         android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="15"
         android:hint="Full Name"
         android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/etImageURL"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:layout_marginTop="10dp"
         android:hint="Image URL"
         android:textSize="20dp"/>
     <EditText
         android:id="@+id/etAge"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="15"
         android:hint="Age"
         android:textSize="20dp"/>
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
@@ -65,9 +68,10 @@
 
     <EditText
         android:id="@+id/etAddress"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="15"
         android:hint="Address"
         android:textSize="20dp"/>
     <Button
