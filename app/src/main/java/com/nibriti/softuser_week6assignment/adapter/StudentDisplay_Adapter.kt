@@ -1,5 +1,6 @@
 package com.nibriti.softuser_week6assignment.adapter
 
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +53,7 @@ class StudentDisplay_Adapter(
         holder.tvAge.text = student.age
         holder.tvAddress.text = student.address
         holder.tvGender.text = student.gender
+
 
         holder.imgDelete.setOnClickListener {
             storage.deleteStudent(student)

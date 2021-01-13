@@ -1,6 +1,7 @@
 package com.nibriti.softuser_week6assignment.fragments
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,9 @@ class AddStudent_Fragment : Fragment() {
     private lateinit var rbMale: RadioButton
     private lateinit var rbFemale: RadioButton
     private lateinit var rbOthers: RadioButton
-    private var gender = ""
+    private var userImageURL = ""
+    var res : Boolean = true
+    private var gender = "Not Specified"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,18 +56,49 @@ class AddStudent_Fragment : Fragment() {
         }
 
         btnSave.setOnClickListener {
-            var fullname = etFullname.text.toString()
-            var userImageURL = etImageURL.text.toString()
-            var age = etAddress.text.toString()
-            var address = etAddress.text.toString()
-            Storage().appendStudent(Student(fullname, userImageURL, age, address, gender))
-            Toast.makeText(view?.context, "Student Added Sucessfully", Toast.LENGTH_LONG).show()
-            etFullname.setText("")
-            etImageURL.setText("")
-            etAddress.setText("")
-            etAge.setText("")
-
+            if(validateInput()) {
+                var fullname = etFullname.text.toString()
+                userImageURL = etImageURL.text.toString()
+                var age = etAge.text.toString()
+                var address = etAddress.text.toString()
+                Storage().appendStudent(Student(fullname, userImageURL, age, address, gender))
+                Toast.makeText(view?.context, "Student Added Sucessfully", Toast.LENGTH_LONG).show()
+                etFullname.setText("")
+                etImageURL.setText("")
+                etAddress.setText("")
+                etAge.setText("")
+            }else{
+                Toast.makeText(view?.context, "Try Again", Toast.LENGTH_SHORT).show()
+            }
         }
         return view
+    }
+    private fun validateInput(): Boolean {
+
+        when {
+            TextUtils.isEmpty(etFullname.text) -> {
+                etFullname.error = "This field should not be empty"
+                etFullname.requestFocus()
+                res = false
+            }
+            TextUtils.isEmpty(etImageURL.text) -> {
+                etImageURL.error = "This field should not be empty"
+                etImageURL.requestFocus()
+                res = false
+            }
+            TextUtils.isEmpty(etAddress.text) -> {
+                etAddress.error = "This field should not be empty"
+                etAddress.requestFocus()
+                res = false
+            }
+            TextUtils.isEmpty(etAge.text) -> {
+                etAge.error = "This field should not be empty"
+                etAge.requestFocus()
+                res = false
+            }
+        }
+
+        return res
+
     }
 }
