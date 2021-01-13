@@ -22,7 +22,6 @@ class AddStudent_Fragment : Fragment() {
     private lateinit var rbFemale: RadioButton
     private lateinit var rbOthers: RadioButton
     private var userImageURL = ""
-    var res : Boolean = true
     private var gender = "Not Specified"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +66,7 @@ class AddStudent_Fragment : Fragment() {
                 etImageURL.setText("")
                 etAddress.setText("")
                 etAge.setText("")
+                etFullname.requestFocus()
             }else{
                 Toast.makeText(view?.context, "Try Again", Toast.LENGTH_SHORT).show()
             }
@@ -74,7 +74,7 @@ class AddStudent_Fragment : Fragment() {
         return view
     }
     private fun validateInput(): Boolean {
-
+        var res : Boolean = true
         when {
             TextUtils.isEmpty(etFullname.text) -> {
                 etFullname.error = "This field should not be empty"
