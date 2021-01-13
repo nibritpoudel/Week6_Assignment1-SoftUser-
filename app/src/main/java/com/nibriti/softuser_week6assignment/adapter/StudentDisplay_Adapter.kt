@@ -55,6 +55,7 @@ class StudentDisplay_Adapter(
 
         holder.imgDelete.setOnClickListener {
             storage.deleteStudent(student)
+            notifyItemRemoved(position)
         }
 
         //Load image with Glide library
